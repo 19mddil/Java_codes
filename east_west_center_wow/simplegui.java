@@ -2,31 +2,33 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class simplegui implements ActionListener{
+class simplegui{
 	JFrame frame;
+	JButton button;//south
+	JButton label;//west
+	JButton button1;//east
+	changing_clr_circle clr;
 	void go(){
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JButton button = new JButton("Change Color");
+		button = new JButton("Change Color");
+		label = new JButton();
+		button1 = new JButton("see what happens at the other side");
+		clr = new changing_clr_circle();
 		
-		frame.getContentPane().add(BorderLayout.SOUTH,button);
+		
+		frame.getContentPane().add(BorderLayout.SOUTH,button);//south
+		frame.getContentPane().add(BorderLayout.CENTER,clr);
+		frame.getContentPane().add(BorderLayout.EAST,button1);//east
+		frame.getContentPane().add(BorderLayout.WEST,label);//west
 		frame.setSize(500,500);
 		frame.setVisible(true);
 		
-		changing_clr_circle clr = new changing_clr_circle();
-		frame.getContentPane().add(BorderLayout.CENTER,clr);
-		button.addActionListener(this);//different function ? not so do not need visible true here
+		south s = new south(frame);
+		east e = new east(label);
 		
-	}
-	public void actionPerformed(ActionEvent event){
-		/*
-		// you can do this and this one is better
-		changing_clr_circle clr = new changing_clr_circle();
-		frame.getContentPane().add(BorderLayout.CENTER,clr);
-		frame.setVisible(true);//if you don't do this ..Well...Allah saved me...again....s
-		*/
-		frame.repaint();
-		
+		button.addActionListener(s);//different function ? not so do not need visible true here
+		button1.addActionListener(e);
 	}
 }
