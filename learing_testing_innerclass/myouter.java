@@ -1,8 +1,8 @@
 class myouter{
 	private int x;
-	myinner inner = new myinner();
 	
 	void damn_outer_do_some_stuff(){
+		myinner inner = new myinner();
 		inner.go();
 	}
 	
