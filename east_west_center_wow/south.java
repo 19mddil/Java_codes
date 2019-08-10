@@ -10,5 +10,4 @@ class south implements ActionListener{
 	public void actionPerformed(ActionEvent event){
 		x.repaint();
 	}
-	
 }

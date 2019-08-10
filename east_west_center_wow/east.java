@@ -9,7 +9,5 @@ class east implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent event){
 		y.setText("I am potential!!??");
-	}
-	
-	
+	}	
 }
