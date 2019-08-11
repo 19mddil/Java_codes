@@ -97,7 +97,7 @@ public class musicplaying{
 				ex.printStackTrace();
 			}
 	}
-	
+	/*
 	class graphicalPresentation extends JPanel implements ControllerEventListener{
 		boolean msg = false;
 		public void paintComponent(Graphics g){
@@ -127,5 +127,5 @@ public class musicplaying{
 			msg = true;
 			repaint();
 		}
-	}
+	}*/
 }
