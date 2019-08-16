@@ -5,6 +5,7 @@ import java.awt.*;
 public class musicplaying{
 	JFrame f = new JFrame("Mymusic vedio");
 	graphicalPresentation gp;
+	
 	MidiEvent getevent(int cmd,int channel,int note,int emphasis,int beat){
 		MidiEvent onoff = null;
 		try{
@@ -14,6 +15,7 @@ public class musicplaying{
 		}catch(Exception ex){}
 		return onoff;
 	}
+	
 	void setupgui(){
 		gp = new graphicalPresentation();
 		f.setContentPane(gp);
@@ -35,7 +37,22 @@ public class musicplaying{
 					Track track = seq.createTrack();
 					
 					int notes = 0;
-					for(int i = 0;i< 500;i += 4 ){///giving 4 here keeps the process slow coz beats are distinct
+					for(int i = 0;i< 10;i += 1 ){///giving 4 here keeps the process slow coz beats are distinct
+						notes = (int)(Math.random() * 127+ 1);///i can pick these random notes in a array....
+						track.add(getevent(144,1,notes,100,i));
+						track.add(getevent(176,1,127,0,i));
+						track.add(getevent(128,1,notes,100,i+2));
+						track.add(getevent(144,1,notes,100,i));
+						track.add(getevent(128,1,notes,100,i+2));
+						track.add(getevent(144,1,notes,100,i));
+						track.add(getevent(128,1,notes,100,i+2));
+						track.add(getevent(144,1,notes,100,i));
+						track.add(getevent(128,1,notes,100,i+2));
+						track.add(getevent(144,1,notes,100,i));
+						track.add(getevent(128,1,notes,100,i+2));
+					}
+					
+					for(int i = 0;i< 10;i += 1 ){///giving 4 here keeps the process slow coz beats are distinct
 						notes = (int)(Math.random() * 127+ 1);
 						track.add(getevent(144,1,notes,100,i));
 						track.add(getevent(176,1,127,0,i));
@@ -89,8 +106,9 @@ public class musicplaying{
 					*/
 					
 					player.setSequence(seq);
-					player.setTempoInBPM(220);
+					//player.setLoopCount(player.LOOP_CONTINUOUSLY);
 					player.start();
+					player.setTempoInBPM(120);
 				
 				
 			}catch(Exception ex){
