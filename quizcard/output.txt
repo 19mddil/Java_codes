@@ -1,0 +1,4 @@
+meow/cat
+bark/dog
+roar/tiger
+moo/cow

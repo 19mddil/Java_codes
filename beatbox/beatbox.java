@@ -36,7 +36,7 @@ class beatbox{
 	String[] instrumentNames = {
 		"note1","note2","note3","note4","note5","note6","note7","note8","note9","note10","note11","note12","note13","note14","note15","note16"
 	};
-	int[] notes = {35,42,46,38,49,39,50,60,70,72,64,56,58,47,67,63};
+	int[] notes = {80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95};
 	//int[] notes = {10,20,30,40,50,55,60,65,70,75,80,90,100,110,120,127};
 	//String[] listEntries
 
@@ -150,12 +150,12 @@ class beatbox{
 		sequence.deleteTrack(track);
 		track = sequence.createTrack();
 
-		for(int i=0;i<16;i++){
+		for(int i=0;i<16;i++){// so note literally depends on it
 			trackList = new int[16];///its for repetations
 			for(int j=0;j<16;j++){
 				JCheckBox jc = (JCheckBox) checkboxList.get(j+(16*i));
 				if(jc.isSelected()){
-					trackList[j] = notes[i];
+					trackList[j] = notes[i];  // from i we get the notes
 				}
 				else{
 					trackList[j] = 0;
