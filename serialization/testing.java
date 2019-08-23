@@ -1,6 +1,8 @@
 import java.io.*;
 class testing{
 	public static void main(String[] args){
+		/*Each time you serialize a object it is given the same serial version of the class that implements Serializable in this case the id of the box.....*/
+		/*Now remember Each time... Also you can set the classes serial version if you want to.....*/
 		try{
 			FileOutputStream fs = new FileOutputStream("foo.ser");
 			ObjectOutputStream os = new ObjectOutputStream(fs);
